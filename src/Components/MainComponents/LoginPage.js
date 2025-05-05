@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase'; // adjust path as needed
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../SharedComponents/AuthContext'; // adjust path if needed
+import LoginImage from '../../Asserts/Images/Login.png'; // adjust the path if needed
 
 const LoginPage = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -81,6 +82,11 @@ const LoginPage = () => {
             alignItems: "center",
             background: "linear-gradient(to right, #e9e4f0, #f9f9f9)"
         }}>
+             <img
+                src={LoginImage}
+                alt="Illustration"
+                style={{ maxWidth: "35%", height: "auto" , position:"absolute",zIndex:"1", left:"8%" }}
+            />
             <form onSubmit={handleLogin} style={{
                 width: "360px",
                 padding: "2.5rem",

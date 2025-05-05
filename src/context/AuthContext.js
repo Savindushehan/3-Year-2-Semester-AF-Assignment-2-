@@ -1,7 +1,7 @@
 // src/context/AuthContext.js
 import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../firebase"; // adjust path to match location
+import { auth } from "../firebase"; // adjust path to match location
 
 const AuthContext = createContext({
   user: null,

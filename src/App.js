@@ -71,6 +71,8 @@ import RegisteredHeader from './Components/SharedComponents/RegistredHeader';
 import AddUser from './Components/MainComponents/RegisteredCountry';
 import { AuthProvider } from './Components/SharedComponents/AuthContext';
 import MoreDetails from './Components/MainComponents/MoreDetails';
+import ProtectedRoute from './Components/ProtectedRoute'; // import it
+import NotFoundPage from './Components/MainComponents/404NotFound';
 
 function App() {
   return (
@@ -90,10 +92,22 @@ function App() {
             <Route path="/CountryPage" element={<CountryPage />} />
             <Route path="/Region" element={<Region />} />
             <Route path="/Code" element={<Code />} />
-            <Route path="/RegisteredUserSharedPage" element={<RegisteredUserSharedPage />} />
             <Route path="/RegisteredHeader" element={<RegisteredHeader />} />
             <Route path="/AddUser" element={<AddUser />} />
             <Route path="/MoreDetails/:countryName" element={<MoreDetails />} />
+            {/* Protected Route for Registered User */}
+            <Route
+              path="/RegisteredUserSharedPage"
+              element={
+                <ProtectedRoute>
+                  <RegisteredUserSharedPage />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Catch-all Route for 404 */}
+            <Route path="/NotFoundPage" element={<NotFoundPage />} />
+
             </Routes>
         </div>
       </AuthProvider>

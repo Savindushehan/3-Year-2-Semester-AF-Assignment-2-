@@ -112,6 +112,7 @@ import React, { useState } from 'react';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../firebase';
+import SignUp from '../../Asserts/Images/SignUp.png'; // adjust the path if needed
 
 const SignInPage = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -189,6 +190,11 @@ const SignInPage = () => {
             alignItems: "center",
             background: "linear-gradient(to right, #e9e4f0, #f9f9f9)"
         }}>
+             <img
+                src={SignUp}
+                alt="Illustration"
+                style={{ maxWidth: "35%", height: "auto" , position:"absolute",zIndex:"1", left:"10%" }}
+            />
             <form onSubmit={handleSubmit} style={{
                 width: "360px",
                 padding: "2.5rem",
@@ -206,7 +212,7 @@ const SignInPage = () => {
                     textAlign: "center",
                     marginBottom: "1rem",
                     color: "#6f5ab8"
-                }}>Sign In</h2>
+                }}>Sign Up</h2>
 
                 {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
                 {success && <p style={{ color: "green", textAlign: "center" }}>{success}</p>}
@@ -258,7 +264,7 @@ const SignInPage = () => {
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                     >
-                        Sign In
+                        Sign Up
                     </button>
                 </div>
             </form>

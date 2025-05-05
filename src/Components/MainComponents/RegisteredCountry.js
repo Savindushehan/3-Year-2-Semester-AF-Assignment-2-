@@ -11,6 +11,7 @@ import {
 } from 'firebase/firestore';
 import { useAuth } from '../SharedComponents/AuthContext';
 import app from '../../firebase';
+import CountryImage from '../../Asserts/Images/Country.png'; // adjust the path if needed
 
 const db = getFirestore(app);
 
@@ -86,19 +87,20 @@ export default function AddUser() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      background: 'linear-gradient(135deg, #4f46e5, #7c3aed, #db2777)',
+      background: '#ffffff', // white background
       padding: '24px',
     },
+    
     card: {
       width: '100%',
       maxWidth: '500px',
-      background: 'rgba(255, 255, 255, 0.05)',
-      backdropFilter: 'blur(20px)',
+      background: '#ffffff', // solid white card
       borderRadius: '20px',
       padding: '32px',
-      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
+      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.1)', // soft shadow
+      border: '1px solid #ff9b00', // orange border
     },
+    
     iconCircle: {
       width: '80px',
       height: '80px',
@@ -113,13 +115,13 @@ export default function AddUser() {
     title: {
       fontSize: '28px',
       fontWeight: 'bold',
-      color: 'white',
+      color: '#1f2937', // dark gray
       textAlign: 'center',
       marginBottom: '8px',
     },
     subtitle: {
       fontSize: '14px',
-      color: 'rgba(255, 255, 255, 0.7)',
+      color: '#6b7280', // gray-500
       textAlign: 'center',
       marginBottom: '32px',
     },
@@ -140,33 +142,32 @@ export default function AddUser() {
       display: 'block',
       fontSize: '12px',
       fontWeight: '500',
-      color: 'rgba(255, 255, 255, 0.8)',
+      color: '#374151', // gray-700
       marginBottom: '8px',
       textTransform: 'uppercase',
       letterSpacing: '0.05em',
+    },
+    input: {
+      width: '87%',
+      padding: '12px 16px',
+      background: '#f9fafb', // light background
+      color: '#111827', // dark text
+      borderRadius: '12px',
+      border: '1px solid #d1d5db', // gray-300
+      outline: 'none',
+      paddingRight: '48px',
+      ...(isFocused && {
+        background: '#fff',
+        border: '1px solid #6366f1', // focus with indigo border
+        boxShadow: '0 0 0 2px rgba(99, 102, 241, 0.2)',
+      }),
     },
     inputContainer: {
       position: 'relative',
       marginBottom: '24px',
       transition: 'all 0.3s ease',
-      ...(isFocused && {
-        boxShadow: '0 0 0 2px rgba(236, 72, 153, 0.5)',
-        borderRadius: '8px',
-      }),
     },
-    input: {
-      width: '86%',
-      padding: '12px 16px',
-      background: 'rgba(255, 255, 255, 0.1)',
-      color: 'white',
-      borderRadius: '12px',
-      border: '1px solid rgba(255, 255, 255, 0.2)',
-      outline: 'none',
-      paddingRight: '48px',
-      ...(isFocused && {
-        background: 'rgba(255, 255, 255, 0.15)',
-      }),
-    },
+    
     inputIcon: {
       position: 'absolute',
       right: '12px',
@@ -202,6 +203,11 @@ export default function AddUser() {
 
   return (
     <div style={styles.page}>
+       <img
+                src={CountryImage}
+                alt="Illustration"
+                style={{ maxWidth: "35%", height: "auto" , position:"absolute",zIndex:"1", left:"10%",border:"none" }}
+            />
       <div style={styles.card}>
         <div style={styles.iconCircle}>
           <span style={{ fontSize: '32px' }}>🌍</span>

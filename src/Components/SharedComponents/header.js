@@ -57,7 +57,7 @@ const Header = () => {
                     onClick={() => handleClick("Sign In")}
 
                 >
-                    Sign In
+                    Sign Up
                 </button>
                 <button
                     id="btn2"
